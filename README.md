@@ -30,7 +30,7 @@ Visit the live application: **[hannas-idl-timer.netlify.app](https://hannas-idl-
 - **Styling**: Tailwind CSS with custom gradients and glass morphism
 - **Icons**: Lucide React
 - **Idle Detection**: react-idle-timer
-- **Testing**: Vitest + React Testing Library + Jest DOM
+- **Testing**: Jest + React Testing Library + Jest DOM
 - **Build Tool**: Vite
 - **Deployment**: Netlify
 - **Code Quality**: ESLint + TypeScript strict mode
