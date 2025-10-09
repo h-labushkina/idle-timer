@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { AuthProvider, useAuth } from '../context/AuthContext';
 
@@ -7,7 +8,7 @@ const TestComponent = () => {
   return (
     <div>
       <div data-testid="auth-status">
-        {isAuthenticated ? 'authenticated' : 'not-authenticated'}
+        {isAuthenticated ? 'authenticated' : 'no-loged-in'}
       </div>
       <div data-testid="user-email">{user?.email || 'no-user'}</div>
       <div data-testid="loading-status">{isLoading ? 'loading' : 'not-loading'}</div>
@@ -26,7 +27,7 @@ const TestComponent = () => {
 
 describe('AuthContext', () => {
   const renderWithAuth = () => {
-    render(
+    return render(
       <AuthProvider>
         <TestComponent />
       </AuthProvider>
@@ -36,16 +37,15 @@ describe('AuthContext', () => {
   it('should start with unauthenticated state', () => {
     renderWithAuth();
     
-    expect(screen.getByTestId('auth-status')).toHaveTextContent('not-authenticated');
+    expect(screen.getByTestId('auth-status')).toHaveTextContent('no-loged-in');
     expect(screen.getByTestId('user-email')).toHaveTextContent('no-user');
     expect(screen.getByTestId('loading-status')).toHaveTextContent('not-loading');
   });
 
   it('should authenticate user with valid credentials', async () => {
     renderWithAuth();
-    
     fireEvent.click(screen.getByTestId('login-button'));
-    
+
     // Check loading state
     expect(screen.getByTestId('loading-status')).toHaveTextContent('loading');
     
@@ -70,7 +70,7 @@ describe('AuthContext', () => {
     // Then logout
     fireEvent.click(screen.getByTestId('logout-button'));
     
-    expect(screen.getByTestId('auth-status')).toHaveTextContent('not-authenticated');
+    expect(screen.getByTestId('auth-status')).toHaveTextContent('no-loged-in');
     expect(screen.getByTestId('user-email')).toHaveTextContent('no-user');
   });
 });

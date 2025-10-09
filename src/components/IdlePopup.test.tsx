@@ -1,5 +1,6 @@
+import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { IdlePopup } from '../components/IdlePopup';
+import { IdlePopup } from './IdlePopup';
 
 describe('IdlePopup', () => {
   const defaultProps = {

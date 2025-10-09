@@ -40,9 +40,9 @@ export const Dashboard: React.FC = () => {
     }, WARNING_TIME);
   };
 
-  const { getRemainingTime, getLastActiveTime, isPrompted, reset } = useIdleTimer({
+  const { getRemainingTime, getLastActiveTime, reset } = useIdleTimer({
     timeout: SESSION_TIMEOUT - WARNING_TIME,
-    promptTimeout: WARNING_TIME,
+    promptBeforeIdle: WARNING_TIME,
     onIdle: handleIdle,
     onPrompt: handlePrompt,
     debounce: 500,

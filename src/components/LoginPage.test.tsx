@@ -1,7 +1,8 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { AuthProvider } from '../context/AuthContext';
-import { LoginPage } from '../components/LoginPage';
+import { LoginPage } from './LoginPage';
 
 const renderLoginPage = () => {
   render(
