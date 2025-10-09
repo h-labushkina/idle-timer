@@ -5,11 +5,12 @@ const config: Config = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['./src/test-setup.ts'],
-  globals: {
-    'ts-jest': {
-      tsconfig: './tsconfig.json',
+    transform: {
+        '^.+\\.tsx?$': ['ts-jest', {
+            tsconfig: 'tsconfig.json',
+            // other ts-jest options here
+        }],
     },
-  },
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
@@ -17,6 +18,7 @@ const config: Config = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
+    collectCoverage: true,
 };
 
 export default config;
