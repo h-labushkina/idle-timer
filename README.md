@@ -102,10 +102,6 @@ src/
 │   └── AuthContext.tsx  # Authentication state management with reducer
 ├── types/               # TypeScript type definitions
 │   └── auth.ts          # User and authentication interfaces
-├── __tests__/           # Comprehensive test suite
-│   ├── AuthContext.test.tsx
-│   ├── IdlePopup.test.tsx
-│   └── LoginPage.test.tsx
 ├── App.tsx              # Main application component with routing logic
 ├── main.tsx             # Application entry point
 └── index.css            # Tailwind CSS imports
